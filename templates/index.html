@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Processing tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container py-3">
+
+        <h1>Video Processing tool!</h1>
+        <hr />
+
+        <form id="uploadFileForm" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <!-- make ajax call -->
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Video</label>
+                <input class="form-control" type="file" name="file" id="file" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload File</button>
+        </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+
+<!-- <script>
+
+    $('#uploadFileForm').submit(function (event) {
+        event.preventDefault();
+        var formData = new FormData();
+        formData.append("file", document.getElementById("video").files[0])
+        console.log(document.getElementById("video").files[0])
+        console.log(formData)
+
+        $.ajax({
+            url: '/uploadFile/',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            success: function (response) {
+                // Handle the successful response here
+                console.log(response);
+                alert("Video Uploaded Successfully!")
+            },
+            error: function (xhr, status, error) {
+                // Handle errors here
+                console.log(error);
+                alert("Error while uploading file!")
+            }
+        })
+    })
+
+</script> -->
+
+</html>
